@@ -11,7 +11,7 @@
   - name: change root password
     user:
       name=root
-      password:{{ root_password }}
+      password={{ root_password }}
 
   - name: update and upgrade system
     apt:
