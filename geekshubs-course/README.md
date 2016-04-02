@@ -90,8 +90,17 @@ En el Playbook de Ansible, para el módulo apt, puedes decidir state=latest (sie
   * ssh-add ~/.ssh/id_rsa_ansible
 
 ## Gestión de infrastructuras y entornos 3
+* https://github.com/nestorsalceda/taller-ansible/tree/master/codingstones-operations
+  * Guidelines: guidelines.md
+* Ansible best practices: http://docs.ansible.com/ansible/playbooks_best_practices.html
+  * Layout
+* Galaxy Ansible (hub for finding, reusing and sharing the best Ansible content): https://galaxy.ansible.com/
+* Roles:
+  * exim: for sending emails
+  * logwatch: envía un informe diario con logs de diversas cuestiones, puedes detectar ataques.
+  * munin: monitoring
 
-Bookmark: 
+##Bookmark: 
 
 ##Questions:
 * The example of "My first 5 minutes on a server" always executes the "disable ssh root login" task, why??
@@ -104,3 +113,6 @@ Bookmark:
 ##Interesting links
 * Securing Debian: https://www.debian.org/doc/manuals/securing-debian-howto/securing-debian-howto.en.pdf
 * My first 5 minutes on a server: http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
+* Python best practices and examples:
+  * https://github.com/kennethreitz/samplemod
+  * Repository structure: http://docs.python-guide.org/en/latest/writing/structure/
