@@ -1,0 +1,90 @@
+---
+- hosts: all
+  vars:
+    #1234
+    user_password: "$6$1.60i6uaax7snK$hv1KnhU5punVR/BIYtDBezPIva3uhiuQq80xiM4EioQAVdTNZW0yV/91w6RDyZfEgbrWNCgOkUQwvnqsTIA2u0"
+    #5678
+    root_password: "$6$MA7zPbxHNCCIc3a$mzDd28U6eVEyw81qdZwcHGG/kh3GU/R/wksbt5qj8BVPUZDpBBk8XlUndji6saRTqgUuZSm.450UAQx5kY4AB0"
+
+  tasks:
+
+  - name: change root password
+    user:
+      name=root
+      password:{{ root_password }}
+
+  - name: update and upgrade system
+    apt:
+      update_cache=yes
+      upgrade=dist
+
+  - name: install fail2ban
+    apt:
+      name=fail2ban
+      state=present
+
+  - name: install sudo
+    apt:
+      name=sudo
+      state=present
+
+  - name: create user islomar
+    user:
+      name=islomar
+      shell=/bin/bash
+      groups=sudo
+      append=yes
+      password={{ user_password }}
+
+  - name: add islomar public key
+    authorized_key:
+      user=islomar
+      key="{{ lookup('file', '~/.ssh/id_rsa_ansible.pub') }}"
+
+  - name: disable ssh password authentication
+    lineinfile:
+      dest=/etc/ssh/sshd_config
+      regexp="^PasswordAuthentication"
+      line="PasswordAuthentication no"
+      state=present
+    notify: restart ssh
+
+  - name: disable ssh root login
+    lineinfile:
+      dest=/etc/ssh/sshd_config
+      regexp="^PasswordRootLogin"
+      line="PermitRootLogin no"
+      state=present
+    notify: restart ssh
+
+  - name: install a firewall
+    apt:
+      name=ufw
+      state=present
+
+  - name: allow ssh traffic
+    ufw:
+      rule=allow
+      name=ssh
+
+  - name: enable firewall and logging
+    ufw:
+      logging=on
+      state=enabled
+      policy=deny
+
+  - name: install unattended upgrades
+    apt:
+      name=unattended-upgrades
+      state=present
+
+  - name: configure periodic settings for upgrades
+    copy:
+      src=files/apt_periodic
+      dest=/etc/apt/apt.conf.d/10_periodic
+
+  handlers:
+    - name: restart ssh
+      action: service
+        name=ssh
+        state=restarted

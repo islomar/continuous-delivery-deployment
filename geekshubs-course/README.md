@@ -59,6 +59,36 @@ Create www.tf (hay que meter claves)
 
 * Foreman para Ruby
 
+
+## Deployment pipeline
+* Video 1 = ### Configuration management 5
+
+Sessión de dudas Continuous Delivery:
+https://www.youtube.com/watch?v=3sEVv7hgkvk
+
+
+## Gestión de infrastructuras y entornos 1
+Snowflake servers: que cada servidor no sea único, como un copo de nieve
+http://martinfowler.com/bliki/SnowflakeServer.html
+
+Objetivo: conseguir los Phoenix Servers, un servidor que puedes tirar abajo y reconstruir sin problemas (http://martinfowler.com/bliki/PhoenixServer.html)
+
+Ansible: 
+* no necesita un servidor central, como Chef o Puppet.
+* los agentes de Puppet y Chef son lentos, y tienes un demonio ejecutándose (Ansible solo necesita SSH)
+* Ansible usa YAML, Puppet y Chef tienen sus DSL propios
+* Hecho en Python
+* Tiene modules: para MySQL, RabbitMQ, etc.
+
+En el Playbook de Ansible, para el módulo apt, puedes decidir state=latest (siempre instalará la última versión) o state=present (la primera vez instala la última versión, pero después ya nunca la actualiza)
+
+
+## Gestión de infrastructuras y entornos 2
+* Create a playbook to replicate the steps in "My first 5 minutes on a server".
+* The password in playbook must be the result from: mkpasswd -m sha-k512
+
+Bookmark: 
+
 ##Pending to be read
 * 12factor
 * Otto
@@ -66,3 +96,4 @@ Create www.tf (hay que meter claves)
 
 ##Interesting links
 * Securing Debian: https://www.debian.org/doc/manuals/securing-debian-howto/securing-debian-howto.en.pdf
+* My first 5 minutes on a server: http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
