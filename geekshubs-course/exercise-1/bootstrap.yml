@@ -52,7 +52,7 @@
   - name: disable ssh root login
     lineinfile:
       dest=/etc/ssh/sshd_config
-      regexp="^PasswordRootLogin"
+      regexp="^PermitRootLogin"
       line="PermitRootLogin no"
       state=present
     notify: restart ssh
