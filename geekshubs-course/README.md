@@ -86,8 +86,14 @@ En el Playbook de Ansible, para el módulo apt, puedes decidir state=latest (sie
 ## Gestión de infrastructuras y entornos 2
 * Create a playbook to replicate the steps in "My first 5 minutes on a server".
 * The password in playbook must be the result from: mkpasswd -m sha-k512
+* I created a new id_rsa_ansible.pub:
+  * ssh-keygen -t rsa
+  * ssh-add ~/.ssh/id_rsa_ansible
 
 Bookmark: 
+
+##Questions:
+* The example of "My first 5 minutes on a server" always executes the "disable ssh root login" task, why??
 
 ##Pending to be read
 * 12factor
