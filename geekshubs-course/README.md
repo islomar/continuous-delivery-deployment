@@ -33,7 +33,7 @@ http://docs.python-guide.org/en/latest/writing/structure/
   * Example "league" in Rails
 
 ### Configuration management 3
-  * http://12factor.net/ The twelve-factor app is a methodology for building software-as-a-service apps that:
+  * http://12factor.net/: The twelve-factor app is a methodology for building software-as-a-service apps that:
     * Use declarative formats for setup automation, to minimize time and cost for new developers joining the project;
 	* Have a clean contract with the underlying operating system, offering maximum portability between execution environments;
 	* Are suitable for deployment on modern cloud platforms, obviating the need for servers and systems administration;
@@ -50,18 +50,17 @@ https://www.hashicorp.com/blog/otto.html
 
 
 ### Configuration management 4
-www.terraform.io
-Permite declarar recursos.
-Create www.tf (hay que meter claves)
-> terraform plan
-> terraform apply
-> terraform show
-
+* www.terraform.io
+* Permite declarar recursos.
+* Create www.tf (hay que meter claves)
+  * `> terraform plan`
+  * `> terraform apply`
+  * `> terraform show`
 * Foreman para Ruby
 
 
 ## Deployment pipeline
-* Video 1 = ### Configuration management 5
+* Video 1 = Configuration management 5
 
 Sessión de dudas Continuous Delivery:
 https://www.youtube.com/watch?v=3sEVv7hgkvk
