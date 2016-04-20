@@ -188,7 +188,9 @@ https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/2
 ##Zero downtime releasing
 ###Video 1
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/23f6c437c90466c712b33522b722ff6c29.mp4
-
+* Testing if the infrastructure is OK:
+  * Use of ServerSpec (Ruby gem): http://serverspec.org/
+  * Test-Driven Infrastructure with Chef
 
 
 ##Questions:
