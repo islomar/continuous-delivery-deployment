@@ -190,11 +190,48 @@ https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/2
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/23f6c437c90466c712b33522b722ff6c29.mp4
 * Testing if the infrastructure is OK:
   * Use of ServerSpec (Ruby gem): http://serverspec.org/
+  * Also nice: infratester.net
   * Test-Driven Infrastructure with Chef
+* Zero downtime:
+  * Delega en Foreman
+
+###Video 2
+https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/52edb4994409d2cea9897f22fdd75de3.mp4
+Zero downtime example:
+* nginx >> use upstream for load balancing >> it had to change the nginx template created by Ansible (with Jinja).
+* it starts two web app servers with Docker (in different ports), and it declares both in nginx upstream conf.
+* You can also configure a wait_for step in Docker between starting both server steps (to be sure the first one is already up and running)
+
+###Video 3
+https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/256b581b673ea9b7dc5bea02d466262919.mp4
+* What if things go wrong?
+* Blue-Green Deployment
+  * Vagrantfile: it creates two servers, blue-league and green-league, as well as a router machine.
+    * router has the Ansible role "nginx  "
+  * nginx conf: group_vars/router > it declares both blue and grep IPs in upstream
+  * nginx conf: group_vars/app > 
+    * it declares the nginx for each app (the web server), the upstream is just localhost
+    * it declares as firewall rules: from <router_ip>  >> only allow traffic from the router
+
+###Video 4
+https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/26200df78b028cc186e03492b488ba94c2.mp4
+* Ansible inventory: it declares router, blue and green machines.
+* ansible-playbook router.yml -e 'upstream="192.158.6.148"' >> despliegue del router apuntando al blue
+
+
+###Video 5: Canary releasing
+https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/2793cdce6c20059f0195ee472576fbc463.mp4
+* Using DigitalOcean and Terraform.
+* Inside canary.tf, it creates all three machines: router, blue, green
+* He uses yaourt.
+
+##Video 6
+https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/28abeffd287eca32470efb273af517e458.mp4
 
 
 ##Questions:
 * When to use Ansible and when Docker?
+* Using nginx upstream: only redirect new connections, switch off blue after no connections exist
 
 ##Pending to be read
 * 12factor
@@ -204,8 +241,17 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 * http://weng-blog.com/2015/06/Docker-Overview/
 
 ##Interesting links
+* http://12factor.net/
 * Securing Debian: https://www.debian.org/doc/manuals/securing-debian-howto/securing-debian-howto.en.pdf
 * My first 5 minutes on a server: http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
 * Python best practices and examples:
   * https://github.com/kennethreitz/samplemod
   * Repository structure: http://docs.python-guide.org/en/latest/writing/structure/
+
+##Lessons learned
+* Use a different playbook for provisioning and for deploying.
+* In Google, if you type "whats my ip", you see your public IP.
+
+
+##Retos
+* Manejo de Ansible: http://content.geekshubsacademy.com/courses/GeeksHubsAcademy/CCD-01/2016_T1/discussion/forum/i4x-GeeksHubsAcademy-CCD-01-course-2016_T1/threads/5718923fe66dd74a70000001
