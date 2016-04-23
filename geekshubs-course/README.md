@@ -18,9 +18,16 @@ Source code:
 https://github.com/nestorsalceda/taller-ansible/tree/master/codingstones-operations
 https://github.com/nestorsalceda/continuous-delivery
 
+##Deployment pipeline
+https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/097f14e865424950a1e97fcceb08f9661d.mp4
+https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/10331c5b5ab6987a96e2b1bf04092cf315.mp4
+
+
 
 ##Configuration management
 
+###Video1
+https://storage.googleapis.com/segmento-geek2/deploy/3.%20Gestion%20de%20configuracion/05a6e4b2417fca1ba58e53f107032fd6dd.mp4
 How to Write a Git Commit Message: 
 http://chris.beams.io/posts/git-commit/
 
@@ -31,10 +38,12 @@ Structuring your Python project:
 http://docs.python-guide.org/en/latest/writing/structure/
 
 ### Configuration management 2
+https://storage.googleapis.com/segmento-geek2/deploy/3.%20Gestion%20de%20configuracion/06036c504fca905e0c150b6dae626bfa35.mp4
   * Example from Redis sourcecode
   * Example "league" in Rails
 
 ### Configuration management 3
+https://storage.googleapis.com/segmento-geek2/deploy/3.%20Gestion%20de%20configuracion/07c04246f6a12bb3404bd47394ff6ead1b.mp4
   * http://12factor.net/: The twelve-factor app is a methodology for building software-as-a-service apps that:
     * Use declarative formats for setup automation, to minimize time and cost for new developers joining the project;
 	* Have a clean contract with the underlying operating system, offering maximum portability between execution environments;
@@ -52,6 +61,7 @@ https://www.hashicorp.com/blog/otto.html
 
 
 ### Configuration management 4
+https://storage.googleapis.com/segmento-geek2/deploy/3.%20Gestion%20de%20configuracion/0892cd05e70cd4db8f4968713583d1109f.mp4
 * www.terraform.io
 * Permite declarar recursos.
 * Create www.tf (hay que meter claves)
@@ -62,10 +72,9 @@ https://www.hashicorp.com/blog/otto.html
 
 
 ## Deployment pipeline
-* Video 1 = Configuration management 5
-
-Sessión de dudas Continuous Delivery:
-https://www.youtube.com/watch?v=3sEVv7hgkvk
+###Video 1 = Configuration management 5
+###Video 2
+https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/10331c5b5ab6987a96e2b1bf04092cf315.mp4
 
 
 ## Gestión de infrastructuras y entornos 1
@@ -228,6 +237,10 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 ##Video 6
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/28abeffd287eca32470efb273af517e458.mp4
 
+##Sesiones de dudas
+* Sesión 1: https://www.youtube.com/watch?v=3sEVv7hgkvk
+* Sesión 2: https://www.youtube.com/watch?time_continue=1&v=HW30dK3q8QY
+
 
 ##Questions:
 * When to use Ansible and when Docker?
@@ -251,7 +264,7 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 ##Lessons learned
 * Use a different playbook for provisioning and for deploying.
 * In Google, if you type "whats my ip", you see your public IP.
-
+  
 
 ##Retos
 * Manejo de Ansible: http://content.geekshubsacademy.com/courses/GeeksHubsAcademy/CCD-01/2016_T1/discussion/forum/i4x-GeeksHubsAcademy-CCD-01-course-2016_T1/threads/5718923fe66dd74a70000001
