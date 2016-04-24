@@ -79,6 +79,8 @@ https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/
 
 ## Gestión de infrastructuras y entornos 1
 https://storage.googleapis.com/segmento-geek2/deploy/5.%20Gesti%C3%B3n%20de%20infraestructura%20y%20entornos/11ab8108d324279dcbe445699e2543232f.mp4
+https://storage.googleapis.com/segmento-geek2/deploy/5.%20Gesti%C3%B3n%20de%20infraestructura%20y%20entornos/12d774edcea6e897098afbf7706268e91b.mp4
+
 Snowflake servers: que cada servidor no sea único, como un copo de nieve
 http://martinfowler.com/bliki/SnowflakeServer.html
 
@@ -122,6 +124,16 @@ Trying Munin
   * https://www.hashicorp.com/blog/vault.html
   * Vault gets integrated with Ansible, in order to encode passwords.
   * Ansible + Vault: http://docs.ansible.com/ansible/playbooks_vault.html
+  * `ansible-vault create secrets.yaml`
+    1. It asks for a Vault password (symmetric cyphering with AES)
+    2. An editor gets opened, you can write things like "mysql_root_password: 'mysql'"
+    3. After saving, it gets encoded, and you can push it to GitHub
+    4. Néstor also uploads the certificates like that
+    5. You can edit the file with `ansible-vault edit secrets.yaml`
+* Other options for keeping passwords:
+  * pass (CLI)
+  * keepass
+  * etcd/Consul
 * New version of Muning: http://demo.munin-monitoring.org/
 * Chaos Monkey
 
@@ -239,6 +251,7 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 
 ##Sesiones de dudas
 * Sesión 1: https://www.youtube.com/watch?v=3sEVv7hgkvk
+  * Value Stream Map: what happens since a bug arrives until the solution is deployed?  >> https://en.wikipedia.org/wiki/Value_stream_mapping#Value_stream_mapping_in_Software_Engineering
 * Sesión 2: https://www.youtube.com/watch?time_continue=1&v=HW30dK3q8QY
 
 
@@ -264,6 +277,7 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 ##Lessons learned
 * Use a different playbook for provisioning and for deploying.
 * In Google, if you type "whats my ip", you see your public IP.
+* Split the code related with provisioning and deployment to another repository (or under a /systems folder)
   
 
 ##Retos
