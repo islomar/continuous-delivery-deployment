@@ -17,6 +17,7 @@ https://noysi.com/a/#/teams/geekshubs/channels/general/chat
 Source code:
 https://github.com/nestorsalceda/taller-ansible/tree/master/codingstones-operations
 https://github.com/nestorsalceda/continuous-delivery
+https://github.com/nestorsalceda/tachyon
 
 ##Deployment pipeline
 https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/097f14e865424950a1e97fcceb08f9661d.mp4
@@ -246,13 +247,37 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 * Inside canary.tf, it creates all three machines: router, blue, green
 * He uses yaourt.
 
-##Video 6
+###Video 6
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/28abeffd287eca32470efb273af517e458.mp4
 
 ##Sesiones de dudas
 * Sesión 1: https://www.youtube.com/watch?v=3sEVv7hgkvk
   * Value Stream Map: what happens since a bug arrives until the solution is deployed?  >> https://en.wikipedia.org/wiki/Value_stream_mapping#Value_stream_mapping_in_Software_Engineering
 * Sesión 2: https://www.youtube.com/watch?time_continue=1&v=HW30dK3q8QY
+
+##Autoescalado
+###Video 1
+https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/29a3d7b63d826ed0e4540d6302800d094b.mp4
+* Consul
+  * Example with Terraform and Digital Ocean
+  * Download Consul zip with Ansible
+  * Levantamos máquinas y hacemos que nginx las pille automáticamente (en lugar de hacerlo con el DNS)
+  * Levanta en Terraform dos servidores de aplicación y un servidor Consul
+  * Después, en cada servidor de app, levanta un agente Consul apuntando al servidor
+  * Ansible tiene un módulo para Consul, para automatizar el levantamiento de agentes de Consul
+  * Creo otra máquina en Terraform: el router. Este router se alimenta de Consul para el balanceo, para ver adónde redirigir el tráfico
+  * También existe Consul Template, que está monitorizando todo el tiempo los servicios dados de alta en Consul, y cuando encuentra uno nuevo lo añade al balanceo a realizar por el router.
+
+###Video 2
+https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/298021312e1c39bfcf65418115218ca536.mp4
+* Uso del Consul Template
+* Verifica que la llamada al router se está balanceando a los dos servidores app
+* Reto: automatizar el join al cluster de cada servidor de app
+
+###Video 3
+https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/3103fac5f0b85534ef3e20817d1afb412b.mp4
+* Prueba a meter dos instancias más de la aplicación.
+* Por el Consul template, estas dos instancias son tenidas en cuenta automáticamente por el router para balancear la carga
 
 
 ##Questions:
@@ -282,3 +307,6 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 
 ##Retos
 * Manejo de Ansible: http://content.geekshubsacademy.com/courses/GeeksHubsAcademy/CCD-01/2016_T1/discussion/forum/i4x-GeeksHubsAcademy-CCD-01-course-2016_T1/threads/5718923fe66dd74a70000001
+* Desplegar un Wordrpess, con un nginx por delante (o un apache!)
+* Desplegar una aplicación rails o django, por ejemplo un redmine
+* Desplegar un servidor mattermost, con un nginx o un apache por delante.
