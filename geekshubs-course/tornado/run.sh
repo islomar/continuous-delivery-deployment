@@ -1,0 +1,1 @@
+docker build -t islomar/tornado-poc .
