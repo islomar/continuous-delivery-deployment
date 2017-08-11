@@ -25,9 +25,9 @@ https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/
 
 
 
-##Configuration management
+## Configuration management
 
-###Video1
+### Video1
 https://storage.googleapis.com/segmento-geek2/deploy/3.%20Gestion%20de%20configuracion/05a6e4b2417fca1ba58e53f107032fd6dd.mp4
 How to Write a Git Commit Message: 
 http://chris.beams.io/posts/git-commit/
@@ -73,8 +73,8 @@ https://storage.googleapis.com/segmento-geek2/deploy/3.%20Gestion%20de%20configu
 
 
 ## Deployment pipeline
-###Video 1 = Configuration management 5
-###Video 2
+### Video 1 = Configuration management 5
+### Video 2
 https://storage.googleapis.com/segmento-geek2/deploy/4.%20Deployment%20Pipeline/10331c5b5ab6987a96e2b1bf04092cf315.mp4
 
 
@@ -154,8 +154,8 @@ Brian Marick testing quadrants: http://lisacrispin.com/2011/11/08/using-the-agil
 
 
 
-##Script de Deploy
-###Video 1
+## Script de Deploy
+### Video 1
 https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/17fbcf8574d43182ab49459f2e0c530413.mp4
 * Immutable servers: Docker
   * It uses:
@@ -172,7 +172,7 @@ https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/1
 * A container is an instance of an image.
 * Example with Wordpress: https://hub.docker.com/_/wordpress/
 
-###Video 2
+### Video 2
 https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/18b67c137be4fc7c0156d80d59245e68d8.mp4
 * Use of Dockerfile
 * Image types you can find in hub.docker.com:
@@ -180,17 +180,17 @@ https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/1
   * slim
 * Trying to dockerize the league example
 
-###Video 3
+### Video 3
 https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/19ea5cab72d217a88aa8e64c5b3b675f7a.mp4
 * Solving problems with the Locale dockerizing Ruby league example.
 
-###Video 4
+### Video 4
 https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/20e3318a95f1bb2001fb13f18b46b8fe64.mp4
 * Llenamos los entornos con Ansible >> ¿¿??
 * Smoke testing: página 118 del libro W Delivery
 * Muestra server-expects de Jaime
 
-###Video 5
+### Video 5
 https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/21ed7489dc8f33bd093d297227affb1976.mp4
 * Using the codingstones-operations
   * Add a new role for the app
@@ -201,14 +201,14 @@ https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/2
     * Install pip
     * Install docker py
 
-###Video 6
+### Video 6
 https://storage.googleapis.com/segmento-geek2/deploy/6.%20Script%20de%20Deploy/22edfd109e3604191151c2c7b3f4bba22e.mp4
 * It configures nginx as reverse proxy, in order to protect the access to the league app.
 * It enabled WWW in the firewall
 * It configures Docker so that you can not access the app writing the port in the browser: you don't want to allow to access the server directly, but always through the nginx.
 
-##Zero downtime releasing
-###Video 1
+## Zero downtime releasing
+### Video 1
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/23f6c437c90466c712b33522b722ff6c29.mp4
 * Testing if the infrastructure is OK:
   * Use of ServerSpec (Ruby gem): http://serverspec.org/
@@ -217,14 +217,14 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
 * Zero downtime:
   * Delega en Foreman
 
-###Video 2
+### Video 2
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/52edb4994409d2cea9897f22fdd75de3.mp4
 Zero downtime example:
 * nginx >> use upstream for load balancing >> it had to change the nginx template created by Ansible (with Jinja).
 * it starts two web app servers with Docker (in different ports), and it declares both in nginx upstream conf.
 * You can also configure a wait_for step in Docker between starting both server steps (to be sure the first one is already up and running)
 
-###Video 3
+### Video 3
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/256b581b673ea9b7dc5bea02d466262919.mp4
 * What if things go wrong?
 * Blue-Green Deployment
@@ -235,27 +235,27 @@ https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Rele
     * it declares the nginx for each app (the web server), the upstream is just localhost
     * it declares as firewall rules: from <router_ip>  >> only allow traffic from the router
 
-###Video 4
+### Video 4
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/26200df78b028cc186e03492b488ba94c2.mp4
 * Ansible inventory: it declares router, blue and green machines.
 * ansible-playbook router.yml -e 'upstream="192.158.6.148"' >> despliegue del router apuntando al blue
 
 
-###Video 5: Canary releasing
+### Video 5: Canary releasing
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/2793cdce6c20059f0195ee472576fbc463.mp4
 * Using DigitalOcean and Terraform.
 * Inside canary.tf, it creates all three machines: router, blue, green
 * He uses yaourt.
 
-###Video 6
+### Video 6
 https://storage.googleapis.com/segmento-geek2/deploy/7.%20Zero%20Downtime%20Releasing/28abeffd287eca32470efb273af517e458.mp4
 
-##Sesiones de dudas
+## Sesiones de dudas
 * Sesión 1: https://www.youtube.com/watch?v=3sEVv7hgkvk
   * Value Stream Map: what happens since a bug arrives until the solution is deployed?  >> https://en.wikipedia.org/wiki/Value_stream_mapping#Value_stream_mapping_in_Software_Engineering
 * Sesión 2: https://www.youtube.com/watch?time_continue=1&v=HW30dK3q8QY
 
-##Autoescalado
+## Autoescalado
 ###Video 1
 https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/29a3d7b63d826ed0e4540d6302800d094b.mp4
 * Consul
@@ -268,30 +268,30 @@ https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/29a3d7b63d82
   * Creo otra máquina en Terraform: el router. Este router se alimenta de Consul para el balanceo, para ver adónde redirigir el tráfico
   * También existe Consul Template, que está monitorizando todo el tiempo los servicios dados de alta en Consul, y cuando encuentra uno nuevo lo añade al balanceo a realizar por el router.
 
-###Video 2
+### Video 2
 https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/298021312e1c39bfcf65418115218ca536.mp4
 * Uso del Consul Template
 * Verifica que la llamada al router se está balanceando a los dos servidores app
 * Reto: automatizar el join al cluster de cada servidor de app
 
-###Video 3
+### Video 3
 https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/3103fac5f0b85534ef3e20817d1afb412b.mp4
 * Prueba a meter dos instancias más de la aplicación.
 * Por el Consul template, estas dos instancias son tenidas en cuenta automáticamente por el router para balancear la carga
 
 
-##Questions:
+## Questions:
 * When to use Ansible and when Docker?
 * Using nginx upstream: only redirect new connections, switch off blue after no connections exist
 
-##Pending to be read
+## Pending to be read
 * 12factor
 * Otto
 * Terraform
 * http://collabnix.com/archives/516
 * http://weng-blog.com/2015/06/Docker-Overview/
 
-##Interesting links
+## Interesting links
 * http://12factor.net/
 * Securing Debian: https://www.debian.org/doc/manuals/securing-debian-howto/securing-debian-howto.en.pdf
 * My first 5 minutes on a server: http://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
@@ -299,13 +299,13 @@ https://storage.googleapis.com/segmento-geek2/deploy/8.Autoescalado/3103fac5f0b8
   * https://github.com/kennethreitz/samplemod
   * Repository structure: http://docs.python-guide.org/en/latest/writing/structure/
 
-##Lessons learned
+## Lessons learned
 * Use a different playbook for provisioning and for deploying.
 * In Google, if you type "whats my ip", you see your public IP.
 * Split the code related with provisioning and deployment to another repository (or under a /systems folder)
   
 
-##Retos
+## Retos
 * Manejo de Ansible: http://content.geekshubsacademy.com/courses/GeeksHubsAcademy/CCD-01/2016_T1/discussion/forum/i4x-GeeksHubsAcademy-CCD-01-course-2016_T1/threads/5718923fe66dd74a70000001
 * Desplegar un Wordrpess, con un nginx por delante (o un apache!)
 * Desplegar una aplicación rails o django, por ejemplo un redmine
